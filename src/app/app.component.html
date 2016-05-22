@@ -1,3 +1,4 @@
 <my-header></my-header>
-<my-list></my-list>
+<my-list (onSelectionChange)="onSelectionChange($event)"></my-list>
+<my-item-details [item]="selectedItem"></my-item-details>
 <my-footer></my-footer>
