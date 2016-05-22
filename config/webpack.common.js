@@ -14,15 +14,11 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.ts']
+        extensions: ['', '.js']
     },
 
     module: {
         loaders: [
-            {
-                test: /\.ts$/,
-                loader: 'ts'
-            },
             {
                 test: /\.html$/,
                 loader: 'html'
@@ -33,12 +29,6 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: helpers.root('src', 'app'),
-                loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
-            },
-            {
-                test: /\.css$/,
-                include: helpers.root('src', 'app'),
                 loader: 'raw'
             }
         ]
