@@ -49,7 +49,7 @@ var STATES = [
         "abbreviation": "DC"
     },
     {
-        "name": "Federated States Of Micronesia",
+        "name": "Micronesia",
         "abbreviation": "FM"
     },
     {
@@ -246,15 +246,24 @@ var STATES = [
     }
 ];
 
+
+
     var ListComponent =
     ng.core.Component({
         selector: 'my-list',
         styles : [require('./list.component.css')],
-        template: require('./list.component.html')
+        template : require('./list.component.html'),
+        outputs : ['onSelectionChange']
     })
         .Class({
             constructor: function() {
-                this.states = STATES;
+                this.items = STATES;
+                this.onSelectionChange = new ng.core.EventEmitter();
+            },
+            onSelect: function(item) {
+                this.selectedItem = item;
+                this.onSelectionChange.emit(item);
+               
             }
         });
 

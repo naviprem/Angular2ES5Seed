@@ -10,16 +10,19 @@ var ng = {
 var HeaderComponent = require('../header/header.component.js');
 var FooterComponent = require('../footer/footer.component.js');
 var ListComponent = require('../list/list.component.js');
+var DetailsComponent = require('../details/details.component');
 
     var AppComponent =
     ng.core.Component({
         selector: 'my-app',
-        //styles : [require('./app.component.css')],
         template: require('./app.component.html'),
-        directives : [HeaderComponent, FooterComponent, ListComponent]
+        directives : [HeaderComponent, FooterComponent, ListComponent, DetailsComponent]
     })
         .Class({
-            constructor: function() {}
+            constructor: function() {},
+            onSelectionChange : function(item) {
+                this.selectedItem = item;
+            }
         });
 
 module.exports = AppComponent;
