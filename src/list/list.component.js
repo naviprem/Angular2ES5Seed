@@ -18,14 +18,25 @@ var StateListService = require("../services/state-list.service");
         providers : [StateListService]
     })
         .Class({
-            constructor: [StateListService, function(StateListService) {
-                this.items = StateListService.getStates();
+            constructor: [StateListService, function(stateListService) {
+                this.stateListService = stateListService;
                 this.onSelectionChange = new ng.core.EventEmitter();
             }],
+            ngOnInit: function() {
+                this.getItems();
+            },
+            getItems: function() {
+                this.stateListService.getStates()
+                    .then(function(states) {
+                        ListComponent.items = states;
+                    })
+                    .catch(function(err) {
+                        console.log("error", err);
+                    });
+            },
             onSelect: function(item) {
                 this.selectedItem = item;
                 this.onSelectionChange.emit(item);
-               
             }
         });
 
