@@ -7,10 +7,15 @@ var ng = {
 
 var STATES = require("../mocks/state-list.mock");
 
-var StateListService = {
-    getStates : function() {
-        return STATES;
-    }
-}
+
+var StateListService =
+    ng.core.Injectable()
+        .Class({
+            constructor: function() {},
+            getStates : function() {
+                return STATES;
+            }
+        });
+
 
 module.exports = StateListService;
