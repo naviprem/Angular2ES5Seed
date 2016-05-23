@@ -14,13 +14,14 @@ var StateListService = require("../services/state-list.service");
         selector: 'my-list',
         styles : [require('./list.component.css')],
         template : require('./list.component.html'),
-        outputs : ['onSelectionChange']
+        outputs : ['onSelectionChange'],
+        providers : [StateListService]
     })
         .Class({
-            constructor: function() {
+            constructor: [StateListService, function(StateListService) {
                 this.items = StateListService.getStates();
                 this.onSelectionChange = new ng.core.EventEmitter();
-            },
+            }],
             onSelect: function(item) {
                 this.selectedItem = item;
                 this.onSelectionChange.emit(item);
