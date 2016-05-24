@@ -13,7 +13,7 @@ var StateListService =
         .Class({
             constructor: function() {},
             getStates : function() {
-                return STATES;
+                return Promise.resolve(STATES);
             }
         });
 
