@@ -11,10 +11,19 @@ var STATES = require("../mocks/state-list.mock");
 var StateListService =
     ng.core.Injectable()
         .Class({
-            constructor: function() {},
+            constructor: function() {
+            },
             getStates : function() {
                 return Promise.resolve(STATES);
+            },
+            getStatesSlowly : function() {
+                return new Promise(function(resolve, reject) {
+                    setTimeout(function(){
+                        resolve(STATES);
+                    }, 2000)
+                });
             }
+
         });
 
 
