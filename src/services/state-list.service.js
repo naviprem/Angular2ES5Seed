@@ -23,7 +23,6 @@ var StateListService =
                     }, 2000)
                 });
             }
-
         });
 
 

@@ -2,6 +2,8 @@
     <li *ngFor="let item of items"
         [class.selected]="item === selectedItem"
         (click)="onSelect(item)">
-        <span class="badge">{{item.abbreviation}}</span> {{item.name}}
+        <a [routerLink]="[ '/Details', {myParam: '{{item.abbreviation}}' } ]">
+            <span class="badge">{{item.abbreviation}}</span> {{item.name}}
+        </a>
     </li>
 </ul>
