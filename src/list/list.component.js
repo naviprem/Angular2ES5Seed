@@ -27,12 +27,12 @@ var StateListService = require("../services/state-list.service");
             },
             getItems: function() {
                 var that = this;
-                this.stateListService.getStates()
+                this.stateListService.getStatesSlowly()
                     .then(function(states) {
                         that.items = states;
                     })
                     .catch(function(err) {
-                        console.log("error", err);
+                        console.error("error", err);
 
                     });
             },
