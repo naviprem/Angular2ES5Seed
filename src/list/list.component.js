@@ -26,12 +26,14 @@ var StateListService = require("../services/state-list.service");
                 this.getItems();
             },
             getItems: function() {
+                var that = this;
                 this.stateListService.getStates()
                     .then(function(states) {
-                        ListComponent.items = states;
+                        that.items = states;
                     })
                     .catch(function(err) {
                         console.log("error", err);
+
                     });
             },
             onSelect: function(item) {
