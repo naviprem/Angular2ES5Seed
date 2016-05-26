@@ -1,2 +1,5 @@
-<div>Item Details: </div>
-<div *ngIf="item">{{item.name}}</div>
+<h2> Details: </h2>
+<div class='details' *ngIf="item">
+   <div>State Name : {{item.name}}</div>
+    <div>State abbreviation : {{item.abbreviation}}</div>
+</div>

@@ -8,6 +8,9 @@
     list-style-type: none;
     padding: 0;
 }
+.my-list li a {
+    text-decoration: none;
+}
 .my-list li {
     cursor: pointer;
     position: relative;

@@ -1,7 +1,10 @@
+
+
+
 <ul class="my-list">
-    <li *ngFor="let item of items"
-        [class.selected]="item === selectedItem"
-        (click)="onSelect(item)">
-        <span class="badge">{{item.abbreviation}}</span> {{item.name}}
+    <li *ngFor="let item of items">
+        <a [routerLink]="[ '/Details', {itemId: item.abbreviation } ]">
+            <span class="badge">{{item.abbreviation}}</span> {{item.name}}
+        </a>
     </li>
 </ul>
