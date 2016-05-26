@@ -43,16 +43,9 @@ ListComponent.annotations = [
         styles : [require('./list.component.css')],
         template : require('./list.component.html'),
         outputs : ['onSelectionChange'],
-        directives : [ng.router.ROUTER_DIRECTIVES],
-        providers : [StateListService, ng.router.ROUTER_PROVIDERS]
-    }),
-    new ng.router.RouteConfig([
-        {
-            path: './details',
-            name: 'Details',
-            component: DetailsComponent
-        }
-    ])
+        providers : [StateListService],
+        directives: [ng.router.ROUTER_DIRECTIVES]
+    })
 ]
 
 module.exports = ListComponent;

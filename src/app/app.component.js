@@ -11,6 +11,7 @@ var ng = {
 var HeaderComponent = require('../header/header.component.js');
 var FooterComponent = require('../footer/footer.component.js');
 var ListComponent = require('../list/list.component.js');
+var DetailsComponent = require('../details/details.component.js');
 
     var AppComponent =
         ng.core.Class({
@@ -25,8 +26,7 @@ AppComponent.annotations = [
         selector: 'my-app',
         template: require('./app.component.html'),
         directives : [HeaderComponent, FooterComponent,
-            ng.router.ROUTER_DIRECTIVES],
-        providers: [ng.router.ROUTER_PROVIDERS]
+            ng.router.ROUTER_DIRECTIVES]
     }),
     new ng.router.RouteConfig([
         {
@@ -34,6 +34,11 @@ AppComponent.annotations = [
             name: 'List',
             component: ListComponent,
             useAsDefault: true
+        },
+        {
+            path: '/details/:itemId',
+            name: 'Details',
+            component: DetailsComponent
         }
     ])
 ]

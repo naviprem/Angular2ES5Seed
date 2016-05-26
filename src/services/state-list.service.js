@@ -4,6 +4,7 @@
 var ng = {
     core : require("@angular/core")
 };
+var _ = require("lodash");
 
 var STATES = require("../mocks/state-list.mock");
 
@@ -20,6 +21,15 @@ var StateListService =
                 return new Promise(function(resolve, reject) {
                     setTimeout(function(){
                         resolve(STATES);
+                    }, 2000)
+                });
+            },
+            getState : function(id) {
+                return new Promise(function(resolve, reject) {
+                    setTimeout(function(){
+                        var state = _.find(STATES, {'abbreviation' : id});
+                        console.log(id, state);
+                        resolve(state);
                     }, 2000)
                 });
             }
